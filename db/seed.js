@@ -5,20 +5,20 @@ const { createRestaurants } = require(`./restaurants.js`);
 const { createReservations } = require(`./reservations.js`);
 
 const dropTables = async () => {
-  try{
+  try {
     await client.query(`
       DROP TABLE IF EXISTS reservations;
       DROP TABLE IF EXISTS restaurants;
       DROP TABLE IF EXISTS customers;
       `)
-  } catch(err){
+  } catch (err) {
     console.log(err);
   }
 }
 
 const createTables = async () => {
-  try{
-   await client.query(`
+  try {
+    await client.query(`
     CREATE TABLE customers(
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     name VARCHAR(50) NOT NULL);
@@ -34,9 +34,9 @@ const createTables = async () => {
     customer_id UUID REFERENCES customers(id),
     restaurant_id UUID REFERENCES restaurants(id));
     `)
-   }catch (err){
+  } catch (err) {
     console.log(err);
-   }
+  }
 }
 
 

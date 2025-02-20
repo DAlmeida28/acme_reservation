@@ -8,9 +8,22 @@ const createCustomers = async (customerName) => {
     RETURNING *; 
     `)
 
-    return createdCustomer[0];
+  return createdCustomer[0];
+}
+
+const fetchAllCustomers = async () => {
+  try {
+    const { rows: allCustomers } = await client.query(`
+    SELECT * FROM customers;
+    `)
+
+    return allCustomers;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 module.exports = {
-  createCustomers
+  createCustomers,
+  fetchAllCustomers
 }
