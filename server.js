@@ -1,4 +1,4 @@
-const client = require(`./client.js`);
+const client = require(`./db/client.js`);
 client.connect();
 
 const express = require(`express`);
