@@ -1,8 +1,8 @@
-const client = require('./client.js');
+const client = require('./client.cjs');
 
-const { createCustomers } = require(`./customers.js`);
-const { createRestaurants } = require(`./restaurants.js`);
-const { createReservations } = require(`./reservations.js`);
+const { createCustomers } = require(`./customers.cjs`);
+const { createRestaurants } = require(`./restaurants.cjs`);
+const { createReservations } = require(`./reservations.cjs`);
 
 const dropTables = async () => {
   try {
