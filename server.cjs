@@ -1,14 +1,16 @@
-const { fetchAllCustomers } = require('./db/customers.js');
-const { fetchAllRestaurants } = require('./db/restaurants.js');
-const { fetchAllReservations, createReservations, deleteReservation } = require('./db/reservations.js');
+const { fetchAllCustomers } = require('./db/customers.cjs');
+const { fetchAllRestaurants } = require('./db/restaurants.cjs');
+const { fetchAllReservations, createReservations, deleteReservation } = require('./db/reservations.cjs');
 
-const client = require(`./db/client.js`);
+const client = require(`./db/client.cjs`);
 client.connect();
 
 const express = require(`express`);
 const app = express();
 
 app.use(express.json());
+app.use(express.static('dist'));
+
 
 app.get(`/api/v1/customers`, async (req, res, next) => {
   try{

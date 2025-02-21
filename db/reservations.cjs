@@ -1,4 +1,4 @@
-const client = require(`./client.js`);
+const client = require(`./client.cjs`);
 
 const createReservations = async (date, partyCount, restaurant_id, customer_id) => {
   try {
