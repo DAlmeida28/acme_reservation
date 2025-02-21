@@ -31,13 +31,14 @@ app.post(`/api/v1/customers/:id/reservations`, async (req, res) => {
   const { restaurant_id, date, party_count } = req.body;
 
   const newReservation = await createReservations(date, party_count, restaurant_id, id)
-  res.send(newReservation);
+  res.status(201).send(newReservation);
 })
 
 app.delete(`/api/v1/:customerid/reservations/:id`, async (req, res) => {
   const { customerid, reservationid } = req.params;
 
   await deleteReservation(reservationid, customerid);
+  res.status(204);
 })
 
 const PORT = process.env.PORT || 3000;
